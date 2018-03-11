@@ -22,6 +22,7 @@
       </table>
     </div>
     <div class="col-sm-12 col-md-6">
+      <div v-if="basket.length > 0">
       <table class="table">
         <thead class="thead-default">
         <tr>
@@ -30,15 +31,20 @@
           <th>Total</th>
         </tr>
         </thead>
-        <tbody>
-          <td><button class="btn btn-sm" type="button">-</button><span>1-</span>
-          <button class="btn btn-sm" type="button">+</button></td>
-          <td>Margherita 9"</td>
-          <td>9.95</td>
+        <tbody v-for="item in basket">
+          <td><button class="btn btn-sm" type="button" @click="decreaseQuantity(item)">-</button><span>{{item.quantity}}</span>
+          <button class="btn btn-sm" type="button" @click="increaseQuantity(item)">+</button></td>
+          <td>{{item.name}} {{item.size}}</td>
+          <td>{{item.price * item.quantity }}</td>
         </tbody>
       </table>
       <p>Order total: </p>
       <button class="btn btn-success black">Place order</button>
+      </div>
+
+      <div v-else>
+        <p>{{ basketText }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -48,6 +54,7 @@
     data() {
       return {
         basket: [],
+        basketText: 'Your basket is empty!',
         getMenuItems: {
           1: {
             'name': 'Margherita',
@@ -87,13 +94,24 @@
     },
   methods: {
     addToBasket(item, option) {
-      console.log('press');
       this.basket.push({
         name: item.name,
         price: option.price,
         size: option.size,
         quantity: 1
       })
+    },
+    removeFromBasket(item) {
+      this.basket.splice(this.basket.indexOf(item, 1));
+    },
+    increaseQuantity(item) {
+      item.quantity++
+    },
+    decreaseQuantity(item) {
+      item.quantity--;
+      if(item.quantity === 0) {
+        this.removeFromBasket(item);
+      }
     }
   }
   }
