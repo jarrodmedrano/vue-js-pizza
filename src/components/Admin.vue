@@ -54,6 +54,8 @@
 <script>
   import NewPizza from './NewPizza.vue'
   export default {
-    ppNewPizza: NewPizza
+    components: {
+      ppNewPizza: NewPizza
+    }
   }
 </script>
