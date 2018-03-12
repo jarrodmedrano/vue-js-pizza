@@ -4,7 +4,7 @@
       <pp-header></pp-header>
     </div>
     <div class="container">
-      <pp-admin></pp-admin>
+      <router-view></router-view>
     </div>
     <div class="container">
       <pp-footer></pp-footer>
@@ -22,10 +22,7 @@ import Admin from './components/Admin.vue';
 export default {
   components: {
     ppHeader: Header,
-    ppFooter: Footer,
-    ppHome: Home,
-    ppMenu: Menu,
-    ppAdmin: Admin
+    ppFooter: Footer
   }
 }
 </script>
