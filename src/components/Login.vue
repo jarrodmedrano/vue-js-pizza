@@ -1,7 +1,8 @@
 <template>
   <div class="row">
     <div>
-      <p>Logged in as: <br /> {{currentUser}}</p>
+    <div>
+      <p>Logged in as: <br /> {{currentUser.email}}</p>
     </div>
     <form>
       <div class="form-group row">
@@ -19,6 +20,7 @@
       <button class="btn btn-primary" @click.prevent="signIn">Sign in</button>
       <button class="btn btn-danger" @click.prevent="signOut">Sign out</button>
     </form>
+  </div>
   </div>
 </template>
 
