@@ -7,7 +7,7 @@ import Admin from "./components/Admin";
 import Home from "./components/Home.vue";
 import Menu from "./components/Menu.vue";
 
-const routes = [
+export const routes = [
   {
     path: "/",
     name: "homeLink",
@@ -48,5 +48,3 @@ const routes = [
     redirect: "/"
   }
 ];
-
-export default routes;
