@@ -7,6 +7,19 @@
       <router-view></router-view>
     </div>
     <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-4">
+          <router-view name="ordering"></router-view>
+        </div>
+        <div class="col-sm-12 col-md-4">
+          <router-view name="delivery"></router-view>
+        </div>
+        <div class="col-sm-12 col-md-4">
+          <router-view name="history"></router-view>
+        </div>
+      </div>
+    </div>
+    <div class="container">
       <pp-footer></pp-footer>
     </div>
   </div>
@@ -15,9 +28,6 @@
 <script>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-import Home from './components/Home.vue';
-import Menu from './components/Menu.vue';
-import Admin from './components/Admin.vue';
 
 export default {
   components: {

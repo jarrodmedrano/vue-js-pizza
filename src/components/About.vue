@@ -5,16 +5,16 @@
     <p>Click on the links below for more info:</p>
     <nav class="navbar navbar-expand-md navbar-light">
       <ul class="navbar-nav">
-        <router-link :to="historyLink" tag="li">
+        <router-link :to="{name: 'historyLink'}" tag="li">
           <a class="nav-link">our history</a>
         </router-link>
-        <router-link :to="contactLink" tag="li">
+        <router-link :to="{name: 'contactLink'}" tag="li">
           <a class="nav-link">contact us</a>
         </router-link>
-        <router-link :to="orderingLink" tag="li">
+        <router-link :to="{name: 'orderingLink'}" tag="li">
           <a class="nav-link">ordering info</a>
         </router-link>
-        <router-link :to="deliveryLink" tag="li">
+        <router-link :to="{name: 'deliveryLink'}" tag="li">
           <a class="nav-link">delivery</a>
         </router-link>
       </ul>
@@ -28,13 +28,6 @@
 
 <script>
   export default {
-    data() {
-      return {
-        historyLink: '/history',
-        contactLink: '/contact',
-        orderingLink: '/ordering',
-        deliveryLink: '/delivery'
-      }
-    }
+
   }
 </script>
