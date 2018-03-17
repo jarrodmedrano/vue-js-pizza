@@ -1,5 +1,8 @@
 <template>
   <div class="row">
+    <div>
+      <p>Logged in as: <br /> {{currentUser}}</p>
+    </div>
     <form>
       <div class="form-group row">
         <label class="col-sm-3">Email address</label>
@@ -21,6 +24,15 @@
 
 <script>
   import firebase from 'firebase'
+  import { store } from '../store/store'
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if(user) {
+      store.dispatch('setUser', user);
+    } else {
+      store.dispatch('setUser', null);
+    }
+  });
 
   export default {
     methods: {
@@ -46,6 +58,11 @@
         }).catch(function(error) {
           alert(error);
         });
+      }
+    },
+    computed: {
+      currentUser() {
+        return this.$store.getters.currentUser
       }
     }
   }
